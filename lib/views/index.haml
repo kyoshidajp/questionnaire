@@ -1,2 +1,18 @@
-%p
-  %span.glyphicon.glyphicon-music Hello!
+%form(role='form' method='post' action='/')
+  - @questions.each_with_index do |question, idx|
+    - q_idx = "q#{idx + 1}"
+    .form-group
+      %label{for: q_idx}= question['question']
+      - case question['type']
+      - when 'radio'
+        .radio-items
+          - question['items'].each do |item|
+            %label.radio-inline
+              %input{type: 'radio', name: 'inlineRadioOptions', id: q_idx}= item
+      - when 'text'
+        %input.form-control{type: 'text', id: q_idx}
+      - when 'textarea'
+        %textarea.form-control{rows: 3, id: q_idx}
+
+  .form-group
+    %button.btn.btn-primary(type='submit') submit
