@@ -1,0 +1,14 @@
+!!!
+%html(lang='ja')
+  %head
+    %meta(charset='utf-8')
+    %title Questionnaire
+    %link(rel='stylesheet' href='/css/bootstrap.min.css')
+  %body
+    .navbar.navbar-default
+      .container
+        .navbar-header
+          %a.navbar-brand(href='/') Questionnaire
+
+    .container
+      != yield
