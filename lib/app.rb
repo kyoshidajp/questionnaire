@@ -23,7 +23,17 @@ module Questionnaire
     post '/' do
       init_default_vals
 
-      haml :close
+      if params.values.all? { |v| v == "" }
+        @error_string = 'アンケートに入力してください。'
+        haml :index
+      else
+        File.open 'result.yml', 'a' do |f|
+          f.flock File::LOCK_EX
+          f.puts YAML.dump(params.merge({'time' => Time.now}))
+          f.puts
+        end
+        haml :close
+      end
     end
 
     private

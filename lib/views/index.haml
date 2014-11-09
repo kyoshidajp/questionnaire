@@ -1,18 +1,28 @@
+- if @error_string
+  .alert.alert-danger(role='alert')
+    %span.glyphicon.glyphicon-warning-sign
+    = @error_string
+
 %form(role='form' method='post' action='/')
   - @questions.each_with_index do |question, idx|
     - q_idx = "q#{idx + 1}"
     .form-group
-      %label{for: q_idx}= question['question']
+      %label{for: q_idx}
+        %span.glyphicon.glyphicon-edit
+        = question['question']
+
       - case question['type']
       - when 'radio'
         .radio-items
           - question['items'].each do |item|
             %label.radio-inline
-              %input{type: 'radio', name: 'inlineRadioOptions', id: q_idx}= item
+              %input{type: 'radio', name: q_idx, id: q_idx, value: item}= item
       - when 'text'
-        %input.form-control{type: 'text', id: q_idx}
+        %input.form-control{type: 'text', name: q_idx, id: q_idx}
       - when 'textarea'
-        %textarea.form-control{rows: 3, id: q_idx}
+        %textarea.form-control{rows: 3, name: q_idx, id: q_idx}
 
   .form-group
-    %button.btn.btn-primary(type='submit') submit
+    %button.btn.btn-primary(type='submit')
+      %span.glyphicon.glyphicon-send
+      submit

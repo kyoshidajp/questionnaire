@@ -18,3 +18,5 @@
 ## Environment normalisation:
 /.bundle/
 /vendor/bundle
+
+result.yml
