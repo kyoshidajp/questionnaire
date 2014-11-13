@@ -2,17 +2,19 @@ title: アンケート
 
 questions:
   q1:
-    question: abc?
+    question: このアプリの満足度は？
     type: radio
     items:
+      - 5
+      - 4
       - 3
       - 2
       - 1
 
   q2:
-    question: xyz?
+    question: このアプリについてひとこと
     type: text
 
   q3:
-    question: ddd?
+    question: その他なにかあれば
     type: textarea

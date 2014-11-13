@@ -7,7 +7,7 @@
   - @questions.each_with_index do |question, idx|
     - q_idx = "q#{idx + 1}"
     .form-group
-      %label{for: q_idx}
+      %label.q-label{for: q_idx}
         %span.glyphicon.glyphicon-edit
         = question['question']
 
@@ -23,6 +23,6 @@
         %textarea.form-control{rows: 3, name: q_idx, id: q_idx}
 
   .form-group
-    %button.btn.btn-primary(type='submit')
+    %button.btn.btn-primary(type='submit' onclick="return confirm('この内容で送信してよろしいですか？');")
       %span.glyphicon.glyphicon-send
       submit

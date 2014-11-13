@@ -24,7 +24,7 @@ module Questionnaire
       init_default_vals
 
       if params.values.all? { |v| v == "" }
-        @error_string = 'アンケートに入力してください。'
+        @error_string = '回答を入力してください。'
         haml :index
       else
         File.open 'result.yml', 'a' do |f|
