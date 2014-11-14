@@ -1,5 +1,7 @@
 title: アンケート
 
+result_path: /path/to/result_dir
+
 questions:
   q1:
     question: このアプリの満足度は？
