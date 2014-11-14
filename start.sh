@@ -1,3 +1,3 @@
 #!/bin/sh
 
-bundle exec rackup
+RACK_ENV=production bundle exec rackup
