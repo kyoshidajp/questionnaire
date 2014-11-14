@@ -3,7 +3,7 @@
     %span.glyphicon.glyphicon-warning-sign
     = @error_string
 
-%form(role='form' method='post' action='/')
+%form(role='form' method='post' action='./')
   - @questions.each_with_index do |question, idx|
     - q_idx = "q#{idx + 1}"
     .form-group

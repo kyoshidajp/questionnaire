@@ -13,6 +13,7 @@ module Questionnaire
       config = YAML.load_file('questionnaire.yml')
       set title: config['title']
       set questions: config['questions']
+      set result_path: config['result_path']
     end
 
     get '/' do
@@ -27,7 +28,7 @@ module Questionnaire
         @error_string = '回答を入力してください。'
         haml :index
       else
-        File.open 'result.yml', 'a' do |f|
+        File.open @result_file, 'a' do |f|
           f.flock File::LOCK_EX
           f.puts YAML.dump(params.merge({'time' => Time.now}))
           f.puts
@@ -41,6 +42,7 @@ module Questionnaire
     def init_default_vals
       @title = settings.title
       @questions = settings.questions.values
+      @result_file = settings.result_path + '/result.yml'
     end
   end
 end
