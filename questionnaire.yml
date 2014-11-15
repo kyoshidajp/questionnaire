@@ -1,6 +1,6 @@
 title: アンケート
 
-result_path: .
+result_path: /path/to/result_dir
 relative_path: 
 
 questions:
