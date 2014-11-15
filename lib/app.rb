@@ -1,9 +1,13 @@
 require 'sinatra/base'
+require 'sinatra/url_for'
 require 'haml'
 require 'yaml'
 
 module Questionnaire
   class App < Sinatra::Base
+
+    helpers Sinatra::UrlForHelper
+
     configure :development do
       require 'sinatra/reloader'
       register Sinatra::Reloader

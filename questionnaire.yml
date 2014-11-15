@@ -1,6 +1,7 @@
 title: アンケート
 
-result_path: /path/to/result_dir
+result_path: .
+relative_path: 
 
 questions:
   q1:
